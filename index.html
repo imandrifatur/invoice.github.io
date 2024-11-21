@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Invoice</title>
+</head>
+<body>
+  <div class="invoice-container">
+    <h1>Invoice Details</h1>
+    <div class="invoice-details">
+      <p><strong>Invoice ID:</strong> <span id="invoiceId"></span></p>
+      <p><strong>Date:</strong> <span id="invoiceDate"></span></p>
+      <p><strong>Customer:</strong> <span id="customerName"></span></p>
+      <p><strong>Total:</strong> <span id="totalAmount"></span></p>
+    </div>
+  </div>
+  <script>
+    // Parse query string from URL
+    const params = new URLSearchParams(window.location.search);
+
+    // Set data to HTML
+    document.getElementById("invoiceId").textContent = params.get("id");
+    document.getElementById("invoiceDate").textContent = params.get("date");
+    document.getElementById("customerName").textContent = params.get("customer");
+    document.getElementById("totalAmount").textContent = params.get("total");
+  </script>
+</body>
+</html>
