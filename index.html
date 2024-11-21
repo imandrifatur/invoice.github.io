@@ -19,11 +19,19 @@
     // Parse query string from URL
     const params = new URLSearchParams(window.location.search);
 
+    // Get values from URL parameters
+    const invoiceId = params.get("id");
+    const invoiceDate = params.get("date");  // Assuming date is passed as 'date' in the URL
+    const customerName = params.get("customer");
+    const totalAmount = params.get("total");
+
     // Set data to HTML
-    document.getElementById("invoiceId").textContent = params.get("id");
-    document.getElementById("invoiceDate").textContent = params.get("date");
-    document.getElementById("customerName").textContent = params.get("customer");
-    document.getElementById("totalAmount").textContent = params.get("total");
+    document.getElementById("invoiceId").textContent = invoiceId || "No Invoice ID Provided";
+    document.getElementById("invoiceDate").textContent = invoiceDate 
+      ? new Date(invoiceDate).toLocaleDateString()  // Format the date to a readable format
+      : "No Date Provided";
+    document.getElementById("customerName").textContent = customerName || "No Customer Name Provided";
+    document.getElementById("totalAmount").textContent = totalAmount || "No Total Amount Provided";
   </script>
 </body>
 </html>
